@@ -1,0 +1,9 @@
+node_modules/
+resources/
+.idea/
+
+*.csv
+log.json
+*.iml
+*.log
+output.md

@@ -1,0 +1,39 @@
+# build stuff
+build
+out
+*.node
+linker.lock
+*.o
+*.class
+
+# node_modules
+/node_modules/
+
+# generated certificates
+*.pem
+*.csr
+*.crl
+*.srl
+
+# target folders
+target
+
+# reports folders
+reports
+
+# intellij idea project files
+.idea
+*.iml
+*.ipr
+*.iws
+*.log
+output.md
+
+# waf lock files
+.lock-wscript
+
+# backup files
+*~
+
+# vi swap file
+*.swp

@@ -1,0 +1,37 @@
+{
+  "name": "bluetooth-obd",
+  "version": "0.1.0",
+  "description": "Package for communicating with a bluetooth OBD-II reader",
+  "author": {
+    "name": "Eric Smekens",
+    "email": "ericsmekens@msn.com",
+    "url": "http://github.com/EricSmekens"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:EricSmekens/node-bluetooth-obd.git"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/obd.js",
+  "dependencies": {
+    "bluetooth-serial-port": "0.1.9"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node" : ">= 0.8.x"
+  , "npm" : ">= 1.1.x"
+  },
+  "scripts": {
+    "install": ""
+  },
+  "keywords": [
+    "obd",
+    "car",
+    "bluetooth",
+    "rfcomm",
+    "ecu"
+  ],
+  "license": "FreeBSD"
+}
