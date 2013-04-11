@@ -12,6 +12,9 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 # Pre-requests
 * If it's a Bluetooth ELM327, then it should already be paired!
 
+# Serial
+* If you're looking for serial RS23 connection, look into serial-obd. Is NOT in development anymore.
+
 # Install
 `npm install bluetooth-obd`
 
@@ -20,19 +23,17 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 ## Basic usage
 
 ```javascript
-var OBDReader = require('serial-obd');
-var options = {};
-options.baudrate = 115200;
-var serialOBDReader = new OBDReader("/dev/rfcomm0", options);
+var OBDReader = require('../lib/obd.js');
+var btOBDReader = new OBDReader('D8:0D:E3:80:19:B4', 14);
 var dataReceivedMarker = {};
 
-serialOBDReader.on('dataReceived', function (data) {
+btOBDReader.on('dataReceived', function (data) {
     console.log(data);
     dataReceivedMarker = data;
 });
 
-serialOBDReader.on('connected', function (data) {
-    this.requestValueByName("vss"); //vss = vehicle speed sensor
+btOBDReader.on('connected', function () {
+    //this.requestValueByName("vss"); //vss = vehicle speed sensor
 
     this.addPoller("vss");
     this.addPoller("rpm");
@@ -41,10 +42,11 @@ serialOBDReader.on('connected', function (data) {
     this.addPoller("map");
     this.addPoller("frp");
 
-    this.startPolling(2000); //Polls all added pollers each 2000 ms.
+    this.startPolling(3000);
 });
 
-serialOBDReader.connect();
+
+btOBDReader.connect();
 ```
 ## API
 
@@ -60,17 +62,15 @@ Emitted when data is read from the OBD-II connector.
 
 Emitted when the connection is set up (port is open).
 
-* data - the data that was read and parsed to a reply object
-
-#### OBDReader(portName, options)
+#### OBDReader(address, number)
 
 Creates an instance of OBDReader.
 
 ##### Params:
 
-* **string** *portName* Port that will be connected to. For example: &quot;/dev/rfcomm0&quot;
+ * **string** *address* MAC-address of device that will be connected to.
 
-* **Object** *options* Object that contains options, e.g.: baudrate, databits, stopbits, flowcontrol. Same options serialport module uses.
+ * **number** *channel* Channel that the serial port service runs on.
 
 #### getPIDByName(Name)
 

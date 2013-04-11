@@ -29,7 +29,7 @@ btOBDReader.on('dataReceived', function (data) {
     dataReceivedMarker = data;
 });
 
-btOBDReader.on('connected', function (data) {
+btOBDReader.on('connected', function () {
     //this.requestValueByName("vss"); //vss = vehicle speed sensor
 
     this.addPoller("vss");
