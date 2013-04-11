@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-obd",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Package for communicating with a bluetooth OBD-II reader",
   "author": {
     "name": "Eric Smekens",

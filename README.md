@@ -23,7 +23,7 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 ## Basic usage
 
 ```javascript
-var OBDReader = require('../lib/obd.js');
+var OBDReader = require('bluetooth-obd');
 var btOBDReader = new OBDReader('D8:0D:E3:80:19:B4', 14);
 var dataReceivedMarker = {};
 
