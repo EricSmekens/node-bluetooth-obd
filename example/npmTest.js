@@ -32,6 +32,8 @@ btOBDReader.on('dataReceived', function (data) {
 btOBDReader.on('connected', function () {
     //this.requestValueByName("vss"); //vss = vehicle speed sensor
 
+    var self = this;
+
     this.addPoller("vss");
     this.addPoller("rpm");
     this.addPoller("temp");
@@ -40,6 +42,10 @@ btOBDReader.on('connected', function () {
     this.addPoller("frp");
 
     this.startPolling(3000);
+
+    setTimeout(function() {
+        self.removePoller("frp");
+    }, 7000);
 
     //Custom Poller
 //    var self = this;
