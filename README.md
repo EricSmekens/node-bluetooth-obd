@@ -12,8 +12,11 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 # Pre-requests
 * If it's a Bluetooth ELM327, then it should already be paired!
 
+# Turbo-mode
+* Version 0.0.6 and higher contain some special settings that increase the amount of PIDS you can request by over 500%. Let me know if it gives errors.
+
 # Serial
-* If you're looking for serial RS23 connection, look into serial-obd. Is NOT in development anymore.
+* If you're looking for serial RS23 connection, look into serial-obd. Is NOT ACTIVELY in development anymore.
 
 # Install
 `npm install bluetooth-obd`
@@ -42,7 +45,7 @@ btOBDReader.on('connected', function () {
     this.addPoller("map");
     this.addPoller("frp");
 
-    this.startPolling(3000);
+    this.startPolling(1000); //Request all values each second.
 });
 
 
