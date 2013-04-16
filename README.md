@@ -154,11 +154,11 @@ Writes all active pollers.
 
 #### startPolling()
 
-Starts polling.
+Starts polling. Lower interval than activePollers * 200 will probably give buffer overflows.
 
 ##### Params:
 
-* **number** *interval* Frequency how often all variables should be polled. (in ms) Default = 1000 ms.
+* **number** *interval* Frequency how often all variables should be polled. (in ms) If no value is given, then for each activePoller 250ms will be added.
 
 #### stopPolling()
 

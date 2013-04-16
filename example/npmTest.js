@@ -41,11 +41,11 @@ btOBDReader.on('connected', function () {
     this.addPoller("map");
     this.addPoller("frp");
 
-    this.startPolling(3000);
+    this.startPolling();
 
-    setTimeout(function() {
-        self.removePoller("frp");
-    }, 7000);
+//    setTimeout(function() {
+//        self.removePoller("frp");
+//    }, 7000);
 
     //Custom Poller
 //    var self = this;
