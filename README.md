@@ -157,11 +157,11 @@ Writes all active pollers.
 
 #### startPolling()
 
-Starts polling. Lower interval than activePollers * 200 will probably give buffer overflows.
+Starts polling. Lower interval than activePollers * 50 will probably give buffer overflows.
 
 ##### Params:
 
-* **number** *interval* Frequency how often all variables should be polled. (in ms) If no value is given, then for each activePoller 250ms will be added.
+* **number** *interval* Frequency how often all variables should be polled. (in ms) If no value is given, then for each activePoller 75ms will be added.
 
 #### stopPolling()
 
@@ -169,4 +169,4 @@ Stops polling.
 
 # LICENSE
 
-This module is available under a [FreeBSD license](http://opensource.org/licenses/BSD-2-Clause), see also the [LICENSE file](https://raw.github.com/EricSmekens/node-bluetooth-obd/master/LICENSE) for details.
+This module is available under a [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0.html), see also the [LICENSE file](https://raw.github.com/EricSmekens/node-bluetooth-obd/master/LICENSE) for details.

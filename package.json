@@ -33,5 +33,5 @@
     "rfcomm",
     "ecu"
   ],
-  "license": "FreeBSD"
+  "license": "Apache"
 }

@@ -1,0 +1,7 @@
+The bluetooth-obd pacakage is released under the Apache License, Version 2.0.
+
+It uses and delivers, as part of the project,
+the following 3rd party software:
+
+* bluetooth-serial-port : FreeBSD license, https://npmjs.org/package/bluetooth-serial-port
+* Author: Eelco Cramer
