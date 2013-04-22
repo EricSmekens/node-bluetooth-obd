@@ -9,8 +9,9 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 * Only tested on ELM327 devices.
 * Not all OBD-II Commands are implemented yet.
 
-# Pre-requests
+# Pre-Requirements
 * If it's a Bluetooth ELM327, then it should already be paired!
+* bluetooth-serial-port (module that is used by this module, thanks to Eelco) requires libbluetooth-dev package.
 
 # Turbo-mode
 * Version 0.0.6 and higher contain some special settings that increase the amount of PIDS you can request by over 500%. Let me know if it gives errors.
