@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-obd",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Package for communicating with a bluetooth OBD-II reader",
   "author": {
     "name": "Eric Smekens",
@@ -16,7 +16,7 @@
   },
   "main": "./lib/obd.js",
   "dependencies": {
-    "bluetooth-serial-port": "0.1.10"
+    "bluetooth-serial-port": "0.1.11"
   },
   "devDependencies": {},
   "engines": {
