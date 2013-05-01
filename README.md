@@ -116,13 +116,14 @@ Connect/Open the serial port and add events to serialport. Also starts the inter
 
 Disconnects/closes the port.
 
-#### write(message)
+#### write(message, replies)
 
 Writes a message to the port. (Queued!) All write functions call this function.
 
 ##### Params: 
 
 * **string** *message* The PID or AT Command you want to send. Without \r or \n!
+* **number** *replies* The number of replies that are expected. Default = 0. 0 --> infinite
 
 #### requestValueByName(name)
 
