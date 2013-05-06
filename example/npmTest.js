@@ -35,7 +35,7 @@ btOBDReader.on('connected', function () {
     this.addPoller("map");
     this.addPoller("frp");
 
-    this.startPolling(200);
+    this.startPolling(500);
 
 });
 

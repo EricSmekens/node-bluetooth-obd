@@ -51,15 +51,16 @@ describe("node-serial-obd", function () {
         }, "It took too long to connect.", 20000);
         runs(function () {
             expect(btOBDReader.connected).toEqual(true);
+            waits(3000); //Waiting for init strings to be sent and received!
         });
-        waits(2000); //Waiting for init strings to be sent and received!
+
 
     });
 
     describe("the write function", function () {
         it("can write ascii to the obd-module", function () {
             dataReceivedMarker = false;
-            btOBDReader.write('010D'); //010D stands for speed
+            btOBDReader.write('010C'); //010C stands for RPM
         });
 
         it("can receive and convert the RPM-hex value to something right", function () {
