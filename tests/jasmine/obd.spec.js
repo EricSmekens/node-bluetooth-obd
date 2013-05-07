@@ -175,9 +175,11 @@ describe("node-serial-obd", function () {
             }, "Receiving time expired", 4000);
             runs(function () {
                 expect(dataReceivedMarker.name).toEqual('requestdtc');
-                    expect(dataReceivedMarker.value).toEqual(jasmine.any(Object));
+                if(dataReceivedMarker.value !== 'NO DATA')
+                    expect(dataReceivedMarker.value.errors).toEqual(jasmine.any(Array));
                 dataReceivedMarker = false;
             });
+            waits(1000);
         });
 //        it("can be cleared", function () {
 //            dataReceivedMarker = false;

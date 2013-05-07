@@ -28,16 +28,16 @@ btOBDReader.on('dataReceived', function (data) {
 
 btOBDReader.on('connected', function () {
 
-//    this.addPoller("vss");
-//    this.addPoller("rpm");
-//    this.addPoller("temp");
-//    this.addPoller("load_pct");
-//    this.addPoller("map");
-//    this.addPoller("frp");
-//
-//    this.startPolling(500);
+    this.addPoller("vss");
+    this.addPoller("rpm");
+    this.addPoller("temp");
+    this.addPoller("load_pct");
+    this.addPoller("map");
+    this.addPoller("frp");
 
-    this.write('0101', 1);
+    this.startPolling(500);
+
+    //this.write('0101', 1);
 
 });
 

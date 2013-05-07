@@ -1,7 +1,9 @@
-bluetooth-obd - 0.0.9
+bluetooth-obd - 0.0.11
 ===============
 
-#
+# Changelog - last version
+* Implemented functionality to read error codes and check if MIL is on. Check the obd.spec.js file for an example. Next major version will contain a reply list.
+
 # Bluetooth communication for OBD-II ELM327 devices.
 This node module lets you communicate over a bluetooth serial port with OBD-II ELM327 Connectors using Node.js.
 # Limitations
