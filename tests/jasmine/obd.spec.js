@@ -51,7 +51,7 @@ describe("node-serial-obd", function () {
         }, "It took too long to connect.", 20000);
         runs(function () {
             expect(btOBDReader.connected).toEqual(true);
-            waits(3000); //Waiting for init strings to be sent and received!
+            waits(5000); //Waiting for init strings to be sent and received!
         });
 
 
@@ -153,28 +153,43 @@ describe("node-serial-obd", function () {
     });
 
     describe("DTC", function () { //Diagnostic trouble code
-        it("can be read", function () {
+        it("can be counted", function () {
+            dataReceivedMarker = false;
+            btOBDReader.write('0101', 1); //Count DTC
+            waitsFor(function () {
+                return dataReceivedMarker;
+            }, "Receiving time expired", 4000);
+            runs(function () {
+                expect(!isNaN(dataReceivedMarker.value.mil) || dataReceivedMarker.value === 'NO DATA');
+                expect(!isNaN(dataReceivedMarker.value.numberOfErrors) || dataReceivedMarker.value === 'NO DATA');
+                if(dataReceivedMarker.value !== 'NO DATA')
+                    expect(dataReceivedMarker.value.mil).toEqual(jasmine.any(Number));
+                dataReceivedMarker = false;
+            });
+        });
+        it("can be requested/read", function () {
             dataReceivedMarker = false;
             btOBDReader.requestValueByName("requestdtc");
             waitsFor(function () {
                 return dataReceivedMarker;
             }, "Receiving time expired", 4000);
             runs(function () {
-                expect(dataReceivedMarker.value).toEqual(jasmine.any(String));
+                expect(dataReceivedMarker.name).toEqual('requestdtc');
+                    expect(dataReceivedMarker.value).toEqual(jasmine.any(Object));
                 dataReceivedMarker = false;
             });
         });
-        it("can be cleared", function () {
-            dataReceivedMarker = false;
-            btOBDReader.requestValueByName("cleardtc");
-            waitsFor(function () {
-                return dataReceivedMarker;
-            }, "Receiving time expired", 4000);
-            runs(function () {
-                expect(dataReceivedMarker.value).toEqual(jasmine.any(String));
-                dataReceivedMarker = false;
-            });
-        });
+//        it("can be cleared", function () {
+//            dataReceivedMarker = false;
+//            btOBDReader.requestValueByName("cleardtc");
+//            waitsFor(function () {
+//                return dataReceivedMarker;
+//            }, "Receiving time expired", 4000);
+//            runs(function () {
+//                expect(dataReceivedMarker.value).toEqual(jasmine.any(String));
+//                dataReceivedMarker = false;
+//            });
+//        });
     });
 
 /*  //Not supported with OBDsim.
