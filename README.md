@@ -1,8 +1,5 @@
-bluetooth-obd - 0.0.11
+bluetooth-obd - 0.1.0
 ===============
-
-# Changelog - last version
-* Implemented functionality to read error codes and check if MIL is on. Check the obd.spec.js file for an example. Next major version will contain a reply list.
 
 # Bluetooth communication for OBD-II ELM327 devices.
 This node module lets you communicate over a bluetooth serial port with OBD-II ELM327 Connectors using Node.js.
@@ -19,7 +16,7 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 * Version 0.0.6 and higher contain some special settings that increase the amount of PIDS you can request by over 500%. Let me know if it gives errors.
 
 # Serial
-* If you're looking for serial RS23 connection, look into serial-obd. Is NOT ACTIVELY in development anymore.
+* If you're looking for serial RS23 connection, look into serial-obd.
 
 # Install
 `npm install bluetooth-obd`

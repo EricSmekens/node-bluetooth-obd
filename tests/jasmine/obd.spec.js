@@ -181,17 +181,17 @@ describe("node-serial-obd", function () {
             });
             waits(1000);
         });
-//        it("can be cleared", function () {
-//            dataReceivedMarker = false;
-//            btOBDReader.requestValueByName("cleardtc");
-//            waitsFor(function () {
-//                return dataReceivedMarker;
-//            }, "Receiving time expired", 4000);
-//            runs(function () {
-//                expect(dataReceivedMarker.value).toEqual(jasmine.any(String));
-//                dataReceivedMarker = false;
-//            });
-//        });
+        it("can be cleared", function () {
+            dataReceivedMarker = false;
+            btOBDReader.requestValueByName("cleardtc");
+            waitsFor(function () {
+                return dataReceivedMarker;
+            }, "Receiving time expired", 4000);
+            runs(function () {
+                expect(dataReceivedMarker.value).toEqual(jasmine.any(String));
+                dataReceivedMarker = false;
+            });
+        });
     });
 
 /*  //Not supported with OBDsim.
