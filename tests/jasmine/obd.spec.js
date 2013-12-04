@@ -21,7 +21,7 @@ describe("node-serial-obd", function () {
     'use strict';
     var OBDReader, btOBDReader, dataReceivedMarker;
     OBDReader = require('../../lib/obd.js');
-    btOBDReader = new OBDReader('D8:0D:E3:80:19:B4', 14);
+    btOBDReader = new OBDReader();
     dataReceivedMarker = {}; //New object
 
     btOBDReader.on('dataReceived', function (data) {
@@ -35,6 +35,7 @@ describe("node-serial-obd", function () {
 
     it("has the necessary init properties as btOBDReader object", function () {
         //Functions
+        expect(btOBDReader.autoconnect).toEqual(jasmine.any(Function));
         expect(btOBDReader.connect).toEqual(jasmine.any(Function));
         expect(btOBDReader.disconnect).toEqual(jasmine.any(Function));
         expect(btOBDReader.write).toEqual(jasmine.any(Function));
@@ -45,7 +46,7 @@ describe("node-serial-obd", function () {
     });
 
     it("can connect to a bluetooth serial port", function () {
-        btOBDReader.connect();
+        btOBDReader.connect('D8:0D:E3:80:19:B4', 14);
         waitsFor(function () {
             return btOBDReader.connected;
         }, "It took too long to connect.", 20000);
