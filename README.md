@@ -1,5 +1,8 @@
-bluetooth-obd - 0.1.0
+bluetooth-obd - 0.2.0
 ===============
+
+# This module needs some maintenance, to make it a really usefull module. For now, might have some problems here and there.
+
 
 # Bluetooth communication for OBD-II ELM327 devices.
 This node module lets you communicate over a bluetooth serial port with OBD-II ELM327 Connectors using Node.js.
