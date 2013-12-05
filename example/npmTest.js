@@ -16,7 +16,7 @@
  */
 
 var OBDReader = require('../lib/obd.js');
-var btOBDReader = new OBDReader('D8:0D:E3:80:19:B4', 14);
+var btOBDReader = new OBDReader();
 var dataReceivedMarker = {};
 
 btOBDReader.on('dataReceived', function (data) {
@@ -27,7 +27,7 @@ btOBDReader.on('dataReceived', function (data) {
 });
 
 btOBDReader.on('connected', function () {
-
+    this.requestValueByName("rpm"); //vss
     this.addPoller("vss");
     this.addPoller("rpm");
     this.addPoller("temp");
@@ -36,10 +36,16 @@ btOBDReader.on('connected', function () {
     this.addPoller("frp");
 
     this.startPolling(500);
-
     //this.write('0101', 1);
-
 });
 
+btOBDReader.on('error', function (data) {
+  console.log('Error: ' + data);
+});
 
-btOBDReader.connect();
+btOBDReader.on('debug', function (data) {
+  console.log('Debug: ' + data);
+});
+
+// Use first device with 'obd' in the name
+btOBDReader.autoconnect('obd');

@@ -28,7 +28,7 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 
 ```javascript
 var OBDReader = require('bluetooth-obd');
-var btOBDReader = new OBDReader('D8:0D:E3:80:19:B4', 14);
+var btOBDReader = new OBDReader();
 var dataReceivedMarker = {};
 
 btOBDReader.on('dataReceived', function (data) {
@@ -49,8 +49,8 @@ btOBDReader.on('connected', function () {
     this.startPolling(1000); //Request all values each second.
 });
 
-
-btOBDReader.connect();
+// Use first device with 'obd' in the name
+btOBDReader.autoconnect('obd');
 ```
 ## API
 
@@ -66,15 +66,17 @@ Emitted when data is read from the OBD-II connector.
 
 Emitted when the connection is set up (port is open).
 
-#### OBDReader(address, number)
+#### Event: ('error', message)
+
+Emitted when an error is encountered.
+
+#### Event: ('debug', message)
+
+Emitted with debugging information.
+
+#### OBDReader()
 
 Creates an instance of OBDReader.
-
-##### Params:
-
- * **string** *address* MAC-address of device that will be connected to.
-
- * **number** *channel* Channel that the serial port service runs on.
 
 #### getPIDByName(Name)
 
@@ -99,18 +101,27 @@ Parses a hexadecimal string to a reply object. Uses PIDS. (obdInfo.js)
 ##### Return:
 
 * **Object** reply - The reply.
-
 * **string** reply.value - The value that is already converted. This can be a PID converted answer or &quot;OK&quot; or &quot;NO DATA&quot;.
-
 * **string** reply.name - The name. --! Only if the reply is a PID.
-
 * **string** reply.mode - The mode of the PID. --! Only if the reply is a PID.
-
 * **string** reply.pid - The PID. --! Only if the reply is a PID.
 
-#### connect()
+#### autoconnect(query)
+
+Attempt discovery of the device based on a query string, and call connect() on the first match.
+
+##### Params:
+
+ * **string** *query* (Optional) string to be matched against address/channel (fuzzy-ish)
+
+#### connect(address, channel)
 
 Connect/Open the serial port and add events to serialport. Also starts the intervalWriter that is used to write the queue.
+
+##### Params:
+
+ * **string** *address* MAC-address of device that will be connected to.
+ * **number** *channel* Channel that the serial port service runs on.
 
 #### disconnect()
 
