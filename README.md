@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/bluetooth-obd.png?downloads=true&stars=true)](https://nodei.co/npm/bluetooth-obd/)
+
 bluetooth-obd - 0.2.0
 ===============
 
