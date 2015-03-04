@@ -36,11 +36,6 @@ var OBDReader = require('bluetooth-obd');
 var btOBDReader = new OBDReader();
 var dataReceivedMarker = {};
 
-btOBDReader.on('dataReceived', function (data) {
-    console.log(data);
-    dataReceivedMarker = data;
-});
-
 btOBDReader.on('connected', function () {
     //this.requestValueByName("vss"); //vss = vehicle speed sensor
 
@@ -52,6 +47,11 @@ btOBDReader.on('connected', function () {
     this.addPoller("frp");
 
     this.startPolling(1000); //Request all values each second.
+});
+
+btOBDReader.on('dataReceived', function (data) {
+    console.log(data);
+    dataReceivedMarker = data;
 });
 
 // Use first device with 'obd' in the name
