@@ -16,7 +16,7 @@
   },
   "main": "./lib/obd.js",
   "dependencies": {
-    "bluetooth-serial-port": ">=1.x"
+    "bluetooth-serial-port": ">=1.2.2"
   },
   "devDependencies": {},
   "engines": {

@@ -1,15 +1,11 @@
 [![NPM](https://nodei.co/npm/bluetooth-obd.png?downloads=true&stars=true)](https://nodei.co/npm/bluetooth-obd/)
 
-bluetooth-obd - 0.2.0
+bluetooth-obd - 0.2.1
 ===============
-
-# This module needs some maintenance, to make it a really usefull module. For now, might have some problems here and there.
-
 
 # Bluetooth communication for OBD-II ELM327 devices.
 This node module lets you communicate over a bluetooth serial port with OBD-II ELM327 Connectors using Node.js.
 # Limitations
-* Only tested on Ubuntu
 * Only tested on ELM327 devices.
 * Not all OBD-II Commands are implemented yet.
 
@@ -17,9 +13,6 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 * If it's a Bluetooth ELM327, then it should already be paired! If this hasn't been done, it will cause a connection error.
 * bluetooth-serial-port (module that is used by this module, thanks to Eelco) requires libbluetooth-dev package:
 ** $ sudo apt-get install libbluetooth-dev
-
-# Turbo-mode
-* Version 0.0.6 and higher contain some special settings that increase the amount of PIDS you can request by over 500%. Let me know if it gives errors.
 
 # Serial
 * If you're looking for serial RS23 connection, look into serial-obd.
