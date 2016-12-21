@@ -18,6 +18,12 @@
 var OBDReader = require('../lib/obd.js');
 var btOBDReader = new OBDReader();
 
+// Specify the car communications protocol rather than autodetect
+// http://www.obdtester.com/elm-usb-commands
+// e.g.
+// 'ISO 15765-4 CAN (11 bit ID, 500 kbaud)'
+//btOBDReader.setProtocol(6);
+
 btOBDReader.on('dataReceived', function (data) {
     var currentDate = new Date();
     console.log(currentDate.getTime());
