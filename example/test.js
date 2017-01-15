@@ -31,7 +31,6 @@ btOBDReader.on('dataReceived', function (data) {
 });
 
 btOBDReader.on('connected', function () {
-    //this.requestValueByName("rpm"); //vss
     this.addPoller("vss");
     this.addPoller("rpm");
     this.addPoller("temp");
@@ -40,7 +39,6 @@ btOBDReader.on('connected', function () {
     this.addPoller("frp");
 
     this.startPolling(1500);
-    //this.write('0101', 1);
 });
 
 btOBDReader.on('error', function (data) {
