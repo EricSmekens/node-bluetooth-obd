@@ -52,7 +52,7 @@ btOBDReader.autoconnect('obd');
 ```
 ## API
 
-###OBDReader
+### OBDReader
 
 #### Event: ('dataReceived', data)
 
