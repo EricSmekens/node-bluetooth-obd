@@ -12,7 +12,7 @@ This node module lets you communicate over a bluetooth serial port with OBD-II E
 # Pre-Requirements
 * If it's a Bluetooth ELM327, then it should already be paired! If this hasn't been done, it will cause a connection error.
 * bluetooth-serial-port (module that is used by this module, thanks to Eelco) requires libbluetooth-dev package:
-** $ sudo apt-get install libbluetooth-dev
+`$ sudo apt-get install libbluetooth-dev`
 
 # Serial
 * If you're looking for serial RS23 connection, look into serial-obd.
