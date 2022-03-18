@@ -7,3 +7,5 @@ log.json
 *.iml
 *.log
 output.md
+
+tests/
