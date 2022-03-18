@@ -1,6 +1,6 @@
 {
   "name": "bluetooth-obd",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Package for communicating with a bluetooth OBD-II reader",
   "author": {
     "name": "Eric Smekens",
@@ -20,8 +20,8 @@
   },
   "devDependencies": {},
   "engines": {
-    "node" : ">= 0.8.x"
-  , "npm" : ">= 1.1.x"
+    "node" : ">= 8.x"
+  , "npm" : ">= 5.x"
   },
   "scripts": {
     "install": ""
