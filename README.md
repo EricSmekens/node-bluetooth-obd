@@ -1,6 +1,6 @@
 [![NPM](https://nodei.co/npm/bluetooth-obd.png?downloads=true&stars=true)](https://nodei.co/npm/bluetooth-obd/)
 
-bluetooth-obd - 0.2.4
+bluetooth-obd - 0.2.5
 ===============
 
 # Bluetooth communication for OBD-II ELM327 devices.
